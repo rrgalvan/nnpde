@@ -1,0 +1,160 @@
+%
+% Based on Disputas by Tore Birkeland,
+% which is loosely based on Boadilla by Manuel Carro
+%
+% Originals:
+%
+% Copyright 2009 by Tore Birkeland <tore.birkeland@gmail.com>
+% Copyright 2004 by Manuel Carro <mcarro@fi.upm.es>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+\useoutertheme{PHD}
+
+%
+% Color definitions
+%
+\definecolor{PHDredA}{RGB}{255, 49, 0}
+\definecolor{PHDredB}{RGB}{243,0,33}
+% \definecolor{PHDredC}{RGB}{166, 32, 0}
+\definecolor{PHDredC}{RGB}{196, 32, 0}
+\definecolor{PHDred}{RGB}{243,10,43}
+%\definecolor{PHDblue}{RGB}{4, 55, 108}
+\definecolor{PHDblueA}{RGB}{239,246,247}
+\definecolor{PHDblueB}{RGB}{65,136,211}
+\definecolor{PHDblueC}{RGB}{20, 65, 175}
+% \definecolor{PHDblue}{RGB}{20, 85, 116}
+\definecolor{PHDblue}{RGB}{20, 85, 136}
+\definecolor{PHDgreen}{RGB}{119, 175, 0}
+\definecolor{PHDyellow}{RGB}{255, 204, 0}
+\definecolor{PHDyellowB}{RGB}{235, 165, 0}
+\definecolor{PHDgreenA}{RGB}{52,216,0}
+\definecolor{PHDgreenB}{RGB}{34,141,0}
+\definecolor{PHDgreen}{RGB}{34,141,0}
+\definecolor{PHDgrayA}{RGB}{240, 240, 240}
+\definecolor{PHDgrayB}{RGB}{150, 150, 150}
+\definecolor{PHDgrayC}{RGB}{100, 100, 100}
+\definecolor{PHDgray}{RGB}{150, 150, 150}
+
+\definecolor{newitem}{RGB}{253,206,2}
+\setbeamercolor{boxl}{fg=black,bg=PHDblue!20!white}
+\setbeamercolor{boxu}{fg=white,bg=PHDblue}
+
+%
+% Redefinition of beamer colors
+%
+\setbeamercolor{enumerate item}{fg=PHDredC,bg=PHDredC!20!white}
+\setbeamercolor{enumerate subitem}{fg=PHDredC,bg=PHDredC!20!white}
+\setbeamercolor{enumerate}{fg=PHDredC,bg=PHDredC}
+\setbeamercolor{itemize item}{fg=lightgray}
+\setbeamercolor{itemize subitem}{fg=lightgray}
+\setbeamercolor{frametitle}{fg=PHDblue}
+\setbeamercolor{framesubtitle}{fg=PHDblue}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{section}{fg=PHDblue}
+\setbeamercolor{subsection}{fg=PHDblue}
+\setbeamercolor{itemize}{fg=PHDblue}
+\setbeamercolor{alerted text}{fg=PHDredC}
+\setbeamercolor{structured text}{fg=PHDredC}
+
+
+% Tills' opinion: should be done in an inner theme, not here.
+
+%\setbeamertemplate{frametitle}[default][right]
+%\setbeamertemplate{frametitle}{\vspace{1.7cm}  \insertframetitle}
+\setbeamertemplate{frametitle}{\vspace{0.4cm} \color{black}  \insertframetitle}
+
+\usesubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\color{beamerstructure}$\blacktriangleright$}%
+}
+\usesubsubitemizeitemtemplate{%
+    \tiny\raise1.5pt\hbox{\color{beamerstructure}$\bigstar$}%
+}
+
+%\setbeamertemplate{enumerate item}
+%{
+%  %\usebeamerfont*{item projected}%
+%  %\usebeamercolor[bg]{item projected}%
+%  \begin{pgfpicture}{0ex}{0ex}{1.5ex}{0ex}
+%	%\pgfcircle[fill]{\pgfpoint{0pt}{.75ex}}{1.25ex}
+%    \pgfbox[center,base]{\color{PHDblue}\insertenumlabel.}
+%  \end{pgfpicture}%
+%}
+
+% \setbeamertemplate{frametitle}{
+%     \vspace{2cm}\\
+%     \insertframetitle
+% }
+\setbeamersize{text margin left=15pt,text margin right=15pt}
+\setbeamerfont{frametitle}{size=\Large, shape=\itshape, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\Large, shape=\itshape, series=\bfseries}
+%\addtobeamertemplate{frametitle}{\vskip-0.5ex}{}
+\usecolortheme[named=PHDblue]{structure}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\large}
+
+% Blocks
+\setbeamertemplate{blocks}[rounded]
+\setbeamercolor{block body}{bg=PHDgrayA,fg=black}
+\newcommand{\HideBlockTitle}{ % Set title background = body background
+  \setbeamercolor{block title}{bg=PHDgrayA,fg=white}}
+\newcommand{\ResetBlockTitle}{
+  \setbeamercolor{block title}{bg=PHDblue,fg=white}}
+\ResetBlockTitle
+
+\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
+
+
+% \definecolor{secinhead}{RGB}{249,196,95}
+% \definecolor{titlebg}{RGB}{51,51,51}
+
+% \setbeamercolor{secsubsec}{fg=secinhead,bg=black}
+
+% \setbeamertemplate{headline}
+% {
+%   \leavevmode%
+%   \hbox{%
+%   \begin{beamercolorbox}[wd=\paperwidth,ht=8.25ex,dp=3.5ex]{secsubsec}%
+%     \raggedright
+%     \hspace*{2em}%
+%     {\sffamily\Large\color{secinhead}\thesection.~\insertsection\hfill\insertsubsection}%
+%     \hspace*{2em}%
+%   \end{beamercolorbox}%
+%   }%
+% }
+\setbeamercolor{frametitle}{fg=black}
+\setbeamertemplate{frametitle}
+{\vskip+9pt
+  \leavevmode
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.8ex,dp=1ex]{frametitle}%
+    \raggedright\hspace*{15pt}%
+    %\small%
+    \insertframetitle
+  \end{beamercolorbox}
+  }%
+}
+\setbeamercolor{framesubtitle}{fg=white}
+\setbeamertemplate{framesubtitle}
+{\vskip+9pt
+  \leavevmode
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.8ex,dp=1ex]{framesubtitle}%
+    \raggedleft\hspace*{15pt}%
+    %\small%
+    \insertframesubtitle
+  \end{beamercolorbox}
+  }%
+}
+\mode
+<all>

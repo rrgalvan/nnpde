@@ -1,0 +1,35 @@
+% Based on Disputas by Tore Birkeland <tore.birkeland@gmail.com>,
+% which is  based on infolines theme by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\setbeamercolor{footer}{fg=black!66!white,bg=white}
+
+\def\Vhrulefill{\leavevmode\leaders\hrule height 0.6ex depth \dimexpr0.4pt-0.7ex\hfill\kern0pt}
+\newcommand{\myouterbox}[1]{[\hspace*{0.2ex}#1\hspace*{0.2ex}]}
+\defbeamertemplate*{footline}{PHDtheme}
+{
+%  \usebeamercolor{section in footer}%
+  \leavevmode%
+  \mbox{%
+    \begin{beamercolorbox}[wd=\textwidth,ht=2.5ex,dp=0.66ex]{footer}%
+    \it%
+    \makebox[5ex]{\Vhrulefill}%
+    \myouterbox{\it\insertshortauthor. \ \insertshorttitle}%
+    % \Vhrulefill%
+    % \myouterbox{\sf\insertsectionhead}%
+    \Vhrulefill%
+    \myouterbox{\insertframenumber{} / \inserttotalframenumber}%
+    \makebox[5ex]{\Vhrulefill}%
+    \end{beamercolorbox}%
+  }
+\vskip0pt%
+}
+
+\setbeamersize{text margin left=15pt,text margin right=15pt}
+
+\mode
+<all>

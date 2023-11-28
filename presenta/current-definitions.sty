@@ -1,0 +1,191 @@
+% ------- Mathematics ---------
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\def\Cset{{\mathbb C}}
+\def\Qset{{\mathbb Q}}
+\def\Zset{{\mathbb Z}}
+\def\Rset{{\mathbb R}}
+\def\Nset{{\mathbb N}}
+
+\RequirePackage{xspace}
+
+\def\eps{\varepsilon}
+\newcommand{\st}{\ensuremath{\ / \ }}
+\newcommand{\rg}[1]{\ensuremath{\mathop{\mbox{rg}}#1}}
+\newcommand{\rank}{\ensuremath{\mathop{\mbox{rank}}}}
+\newcommand{\img}{\operatorname{Img}}
+
+
+% -------- PDE --------
+\newcommand{\uu}{\vect{u}}
+
+\newcommand{\domain}{\Omega}
+
+\newcommand{\dt}[1]{\partial_t #1}
+\newcommand{\dx}[1]{\partial_x #1}
+\newcommand{\dy}[1]{\partial_y #1}
+\newcommand{\dz}[1]{\partial_z #1}
+%\renewcommand{\dz}[1]{\partial_z #1} % \dz is defined by xelatex
+\newcommand{\grad}[1]{\nabla #1}
+\newcommand{\gradx}[1]{\nabla_\xx #1}
+\renewcommand{\div}[1]{\nabla\cdot{}#1}
+\newcommand{\divx}[1]{\nabla_\xx\cdot{}#1}
+\newcommand{\convect}[1]{c\big(#1\big)}
+
+\newcommand{\ddt}[1]{\delta_t #1} % Discrete derivative in time
+
+\newcommand{\dtt}[1]{\partial^2_{tt} #1}
+\newcommand{\dxx}[1]{\partial^2_{xx} #1}
+\newcommand{\dyy}[1]{\partial^2_{yy} #1}
+\newcommand{\dzz}[1]{\partial^2_{zz} #1}
+
+\newcommand{\fa}{\ \forall \ }
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\xx}{\vect{x}}
+\newcommand{\XX}{\vect{X}}
+\newcommand{\zz}{z}
+
+\newcommand{\nn}{\vect{n}}
+\newcommand{\nx}{\vect{n}_\xx}
+\newcommand{\nz}{n_z}
+
+\newcommand{\In}[2][\ ]{#1\text{in $#2$}}
+\newcommand{\On}[2][\ ]{#1\text{on $#2$}}
+
+\newcommand{\Deltax}{\Delta_\xx}
+\newcommand{\visc}{\nu}
+\newcommand{\Th}{\ensuremath{{\cal T}_h}\xspace}
+% \newcommand{\Th}{\ensuremath{\tau_h}\xspace}
+\newcommand{\Mh}{\ensuremath{{\cal M}_h}\xspace}
+
+% -------- Primitive equations ----------
+
+\newcommand{\surface}{S}
+\newcommand{\surfaceBoundary}{{\Gamma_{s}}}
+\newcommand{\bottomBoundary}{{\Gamma_{b}}}
+\newcommand{\talusBoundary}{{\Gamma_{l}}}
+\newcommand{\notSurfaceBoundary}{\bottomBoundary\cup\talusBoundary}
+\newcommand{\dmin}{D_\text{min}}
+\newcommand{\dmax}{D_\text{max}}
+
+\renewcommand{\P}[1]{\ensuremath{\mathbb{P}_{#1}}\xspace}
+\newcommand{\Pd}[1]{\ensuremath{\mathbb{P}^{\mathcal{d}}_{#1}}\xspace}
+\newcommand{\Pb}{\P{1,b}}
+\newcommand{\Q}[1]{\ensuremath{\mathbb{Q}_{#1}}\xspace}
+\newcommand{\Qd}[1]{\ensuremath{\mathbb{Q}^{\mathcal d}_{#1}}\xspace}
+% \newcommand{\Polin}[1]{\ensuremath{{\mathbb P}_{#1}}}
+
+%\newcommand{\st}{\ / \ }
+
+% %\newcommand{\uu}{\vect{u}}
+% \newcommand{\ux}{u_1}
+% \newcommand{\uy}{u_2}
+% \newcommand{\uz}{u_3}
+% \newcommand{\vv}{\vect{v}}
+% \newcommand{\vz}{v_3}
+% \newcommand{\ww}{\vect{w}}
+% \newcommand{\wz}{v_3}
+% \newcommand{\ps}{p_s}
+% \newcommand{\qs}{q_s}
+% \newcommand{\ff}{\vect{f}}
+% \newcommand{\FF}{\vect{F}}
+% \newcommand{\gs}{\vect{g}_{s}}
+% \newcommand{\pp}{p}
+% \newcommand{\qq}{q}
+
+\newcommand{\Fh}{\ensuremath{\vect{F}_h}}
+
+\newcommand{\vv}{\vect{v}}
+\newcommand{\ww}{\vect{w}}
+\newcommand{\WW}{\vect{W}}
+\newcommand{\ff}{\vect{f}}
+\newcommand{\gs}{\vect{g}_{s}}
+\newcommand{\pp}{p}
+\newcommand{\qq}{q}
+
+\newcommand{\uh}{{u_{h}}}
+\newcommand{\uuh}{{\uu_{h}}}
+\newcommand{\vh}{{v_{h}}}
+\newcommand{\wh}{{w_{h}}}
+\newcommand{\wwh}{{\ww_{h}}}
+\newcommand{\um}{{u^{m}}}
+\newcommand{\umm}{{u^{m+1}}}
+\newcommand{\uma}{{u^{m+r_1}}}
+\newcommand{\vmb}{{v^{m+r_2}}}
+\newcommand{\vmc}{{v^{m+r_3}}}
+\newcommand{\umd}{{u^{m+r_4}}}
+\newcommand{\uum}{{\uu^{m}}}
+\newcommand{\uumm}{{\uu^{m+1}}}
+\newcommand{\vm}{{v^{m}}}
+\newcommand{\vmm}{{v^{m+1}}}
+\newcommand{\wm}{{w^{m}}}
+\newcommand{\wmm}{{w^{m+1}}}
+\newcommand{\uzh}{{u_{3,h}}}
+\newcommand{\vzh}{{v_{3,h}}}
+\newcommand{\ph}{{p_{h}}}
+\newcommand{\qh}{{q_{h}}}
+
+\newcommand{\llaveizq}[1]{$\left\{
+  \begin{tabular}{@{}l@{}}#1\end{tabular}\right.$}
+\newcommand{\llaveder}[1]{$\left.
+  \begin{tabular}{@{}l@{}}#1\end{tabular}\right\}$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define a special style at begining of sections
+\newcommand{\SetEmptyBackground}{
+  \setbeamertemplate{background}{}
+  \setbeamertemplate{footline}[default]
+}
+\newcommand{\SetDefaultBackground}{
+  \setbeamertemplate{background}
+  % {\includegraphics[width=\paperwidth,height=\paperheight]{slide_bg}}
+  \setbeamertemplate{footline}[PHDtheme]
+}
+
+\newenvironment{sectionframe}{%
+  \SetEmptyBackground\begin{frame}
+%    \par\noindent\structure{\rule{\linewidth}{1pt}}\par
+%    \vskip+0.6em
+    \vskip1.6em
+    Section \thesection.  \itshape\insertsection
+    \vskip-0.7em
+    \par\noindent\structure{\rule{\linewidth}{1pt}}\par
+  }{%
+  \end{frame}\SetDefaultBackground}
+
+\newenvironment{smallblock}[1]{%
+  % Block with horizontal top title
+  \begin{block}{\small #1}
+    \vspace{-0.9\baselineskip}
+    \small
+  }{\vspace{-1.2\baselineskip}\end{block}}
+
+\newenvironment{smallblockTurn}[1]{%
+  \begin{block}{}
+    \vspace{-0.4\baselineskip}
+    \small
+    \begin{tabular}{@{}l|>{$}r<{$}>{$}l<{$}@{}}
+      \multirow{3}{*}{
+        \begin{turn}{40}
+          #1
+        \end{turn}}&
+      \begin{minipage}{0.8\linewidth}
+      }{\vspace{-1.0\baselineskip}%
+      \end{minipage}\end{tabular}\end{block}}
+
+\newenvironment{BlockNoTitle}{%
+  \HideBlockTitle%
+  \begin{block}{\vspace{-3ex}}}{%
+  \end{block}%
+  \ResetBlockTitle}
+
+\newenvironment{BoxWithVerticalLabel}[2]{%
+%  \begin{tabular}{@{\quad}r@{ }l@{}}
+  \mbox{}\quad
+  \begin{rotate}{90}
+    \color{black}\small\fbox{#1}
+  \end{rotate}}%&}
+{}
+%{\end{tabular}}
+
