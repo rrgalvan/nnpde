@@ -48,7 +48,7 @@
 \setbeamertemplate{enumerate item}[mycircle]
 
 \title{Neural Networks}
-\author{\em\structure{Álex Pérez Fernández, Rafa Rodríguez Galván}}
+\author{Álex Pérez Fernández, Rafa Rodríguez Galván}
 
 
 % PDFLaTeX font choosing
@@ -181,17 +181,16 @@
 %=====================================================================
 \begin{frame}{Neural Networks...}
 %---------------------------------------------------------------------
-  Tarea: adaptar y traducir al inglés
   \vspace{-0.9em}
   \includegraphics[width=0.95\linewidth]{deep-NN}
   \pause
   ~
   \vfill
-  {\large\textbf{...son artefactos matemáticos:}}
+  {\large\textbf{...are mathematical artifacts:}}
   \begin{gather*}
     {\color{inputcolor} \xx} \mapsto 
-    {\color{hiddencolor}\ff_1({\color{inputcolor} \xx})} \mapsto \pause
-    {\color{hiddencolor}\ff_2\circ \ff_1({\color{inputcolor} \xx})} \mapsto \pause
+    {\color{hiddencolor}\ff_1({\color{inputcolor} \xx})} \mapsto 
+    {\color{hiddencolor}\ff_2\circ \ff_1({\color{inputcolor} \xx})} \mapsto 
     % {\color{hiddencolor}\ff_3\circ \ff_2\circ \ff_1({\color{inputcolor} x})} \mapsto \pause
     {\color{hiddencolor} \cdots} \mapsto
     {\color{hiddencolor} \ff_L\circ \cdots \circ \ff_2\circ \ff_1({\color{inputcolor} x})} = {\color{outcolor}\mathbf{y}}
@@ -211,10 +210,13 @@
     {\color{hiddencolor} \ff_L\circ \cdots \circ \ff_2\circ \ff_1({\color{inputcolor} x})}.
     $$
   Donde...
-  \begin{itemize}
-    \item Cada función $\ff_i$ se llama una \textbf{capa} (oculta)
+  \begin{itemize}\itemsep=0.5em
+    \item Cada función $\ff_i$ se llama una \textbf{capa} (
+      {\color{inputcolor}entrada} $\rightarrow$
+      {\color{hiddencolor}oculta} $\rightarrow$ 
+      {\color{outcolor}salida} )
     \item Cada capa $\ff_i$ está compuesta por un nº variable de \textbf{neuronas}
-    \item Cada neurona (y por tanto cada capa) depende un conjunto de \textbf{parámetros}, que determinarán a la RN 
+    \item Cada neurona depende un conjunto de \textbf{parámetros}, que determinarán a la RN 
   \end{itemize} 
   \bigskip
   \scriptsize
@@ -278,6 +280,43 @@ La RN está determinada por los parámetros $\WW^{(i)}$, los desplazamientos $\v
 %============================================================================
 \section{Ajuste de los parámetros}
 %============================================================================
+
+\begin{frame}{Aprendizaje supervisado}
+%-------------------------------------
+\begin{itemize}
+  \item En redes supervisadas, se dispone de \structure{datos de entrenamiento}, formados por un conjunto de valores de entrada $\widehat x$, junto con los resultados asociados, $\widehat y$   
+  \item Es usual disponer además de \structure{datos de test}, \texttt{xtest}, \texttt{ytest}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Función de coste y entrenamiento de la red neuronal}
+%-------------------------------------
+\begin{itemize}
+  \item El proceso de \alert{entrenamiento de la red neuronal} consiste en determinar los parámetros (pesos, $w_{j,k}^{(i)}$ y desplazamientos, $b_j^{(i)}$) que minimizan un funcional, "\alert{función de coste}", sobre los datos de entrenamiento:
+  $$
+  \Theta^* = 
+  \mbox{argmin}\{ 
+  J(\Theta; \widehat x, \widehat y), \quad \Theta=\left(w_{j,k}^{(i)}, b_j^{(i)}\right)\}
+  $$
+  \item La función de coste varía con cada tipo de red neuronal. Por ejemplo, en problemas de regresión se suelen usar mínimos cuadrados:
+    $$
+  J(\Theta; \widehat x, \widehat y) =
+  \sum_{i=1}^{N_{data}}
+  \left(\widehat y_i - f_{NN}(\widehat x_i)\right)^2.
+  $$
+\end{itemize}
+\end{frame}
+\end{frame}
+
+\begin{frame}{Algoritmos de minimización}
+
+  \begin{itemize}
+    \item Dificultades para la minimización: complejidad del funcional de coste, grandes valores de $N_{data}$
+    \item Se suelen utilizar algoritmos de tipo \alert{descenso de gradiente}
+    \item Necesidad de derivar de forma eficiente: \alert{diferenciación automática}
+    \item Algoritmos de \alert{gradiente estocástico}: en cada paso, se calcula el gradiente pero sólo en un subconjunto aleatorio de datos
+  \end{itemize}
+\end{frame}
 
 \end{document}
 
