@@ -5,7 +5,6 @@
 
 \usepackage{pgf,pgfpages}
 \usepackage{pgffor} % For loops
-
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,backgrounds,calc}
 
@@ -13,14 +12,8 @@
 \usepackage{colortbl}
 \usepackage{units}
 
-% \usepackage{calrsfs}bab
-% \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
-% \usepackage{calligra}
+% Fuente caligráfica en entornos matemáticos
 \usepackage[cal=boondox,scaled=1.15]{mathalfa}
-% \usepackage{bickham}
-% \usepackage{boondox-cal}
-% \usepackage{boondox-calo}
-% \usepackage{dutchcal}
 
 %% Beamer style >>>>>>>>>>>>>>>>>>>>>>>>>
 \mode<presentation>
@@ -58,6 +51,7 @@
 \usepackage{array,booktabs,tabularx}
 
 \usepackage{current-definitions}
+\usepackage{neural-networks}
 
 \newtheorem{remark}{Remark}
 \newtheorem{proposition}{Proposition}
@@ -115,9 +109,9 @@
 \colorlet{hiddencolor}{blue!60!black}
 \colorlet{outcolor}{red!60!black}
 
-%======================================================================
+%--------------------------------------------------------------
 \begin{document}
-%======================================================================
+%--------------------------------------------------------------
 
 % Tikz style and beamer template ------->>>
 \tikzstyle{every picture}+=[remember picture]
@@ -174,13 +168,12 @@
 
 \newcommand{\imgdir}{Undefined, use renewcommand!}
 
-%============================================================================
+%--------------------------------------------------------------
 \section{Neural Networks}
-%============================================================================
+%--------------------------------------------------------------
 
-%=====================================================================
 \begin{frame}{Neural Networks...}
-%---------------------------------------------------------------------
+%--------------------------------------------------------------
   \vspace{-0.9em}
   \includegraphics[width=0.95\linewidth]{deep-NN}
   \pause
@@ -277,9 +270,9 @@ La RN está determinada por los parámetros $\WW^{(i)}$, los desplazamientos $\v
   \end{center}
 \end{frame}
 
-%============================================================================
+%--------------------------------------------------------------
 \section{Ajuste de los parámetros}
-%============================================================================
+%--------------------------------------------------------------
 
 \begin{frame}{Aprendizaje supervisado}
 %-------------------------------------
@@ -298,23 +291,26 @@ La RN está determinada por los parámetros $\WW^{(i)}$, los desplazamientos $\v
   \mbox{argmin}\{ 
   J(\Theta; \widehat x, \widehat y), \quad \Theta=\left(w_{j,k}^{(i)}, b_j^{(i)}\right)\}
   $$
-  \item La función de coste varía con cada tipo de red neuronal. Por ejemplo, en problemas de regresión se suelen usar mínimos cuadrados:
+\item La función de coste varía con cada tipo de red neuronal. Por ejemplo, en problemas de regresión se suelen usar mínimos cuadrados ("\structure{MSE}: minimum mean square error"):
     $$
   J(\Theta; \widehat x, \widehat y) =
-  \sum_{i=1}^{N_{data}}
-  \left(\widehat y_i - f_{NN}(\widehat x_i)\right)^2.
+  \frac1{N_{data}} \sum_{i=1}^{N_{data}}
+  \left(\widehat y_i - f_{NN}(\widehat x_i)\right)^2
   $$
 \end{itemize}
-\end{frame}
 \end{frame}
 
 \begin{frame}{Algoritmos de minimización}
 
   \begin{itemize}
     \item Dificultades para la minimización: complejidad del funcional de coste, grandes valores de $N_{data}$
-    \item Se suelen utilizar algoritmos de tipo \alert{descenso de gradiente}
-    \item Necesidad de derivar de forma eficiente: \alert{diferenciación automática}
-    \item Algoritmos de \alert{gradiente estocástico}: en cada paso, se calcula el gradiente pero sólo en un subconjunto aleatorio de datos
+    \item Enormes requerimientos de cálculo para el entrenamiento, uso de grandes ordenadores, GPUs
+    \item Se suelen utilizar algoritmos de tipo \alert{descenso de gradiente}\footnote{\url{https://en.wikipedia.org/wiki/Gradient_descent}}
+    \[
+      \Theta_{k+1} =  \Theta_k - \lr \nabla_\Theta{J(\Theta_k;\widehat x, \widehat y)}, \quad \mbox{\lr: "Learning Rate"}
+    \]
+  \item Necesidad de derivar de forma eficiente: \alert{diferenciación automática}\footnote{\url{https://en.wikipedia.org/wiki/Automatic_differentiation}}
+    \item Algoritmos de \alert{gradiente estocástico}\footnote{\url{https://en.wikipedia.org/wiki/Stochastic_gradient_descent}}: en cada paso, se calcula el gradiente pero sólo en un subconjunto aleatorio de datos
   \end{itemize}
 \end{frame}
 
